@@ -1,0 +1,457 @@
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  color: #444;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #F9C933;
+  padding: 2px;
+}
+
+.hero {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('/assets/frame-1.jpg') center/cover no-repeat;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+}
+
+.hero-desc {
+    color: white;
+}
+
+.hero-desc h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+  color: white;
+  line-height: 1.4;
+}
+
+.hero-desc p {
+  font-size: 1rem;
+  color: #f1f1f1;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hero-button {
+  color: white;
+  background-color: #3ECF4C;
+  padding: 12px;
+  width: 30%;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+.container {
+  padding: 1rem 1rem;
+  max-width: 1275px;
+  margin: 10px auto;
+}
+
+.title-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.title-section p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs a {
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  color: #555;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.tabs a.active {
+  border-bottom: 2px solid #F64920;
+  color: #F64920;
+  font-weight: bold;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 90%;
+  padding-top: 20px;
+  padding-left: 20px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.instructor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.instructor img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.rating {
+  color: #f9b233;
+}
+
+.price {
+  color: #3ECF4C;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+    max-height: unset;
+    text-align: center;
+  }
+
+  .hero-desc h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
+
+  .hero-desc p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-button {
+    font-size: 1rem;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .tabs {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0 1rem;
+  }
+
+  .tabs a {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
+
+    .newsletter {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('/assets/frame-2.jpg') center/cover no-repeat;
+      border-radius: 12px;
+      padding: 3rem 1rem;
+      color: white;
+      position: relative;
+      text-align: center;
+      margin: 2rem 1rem;
+      max-width: 1280px;
+      margin-inline: auto;
+    }
+
+    .newsletter-overlay {
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .newsletter-subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .newsletter-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-desc {
+      font-size: 1rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      border: none;
+      flex: 1 1 300px;
+      max-width: 400px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      background-color: #f4b63d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #e49e15;
+    }
+
+    @media (max-width: 480px) {
+      .newsletter-title {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-desc {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+      }
+
+      .newsletter-form {
+        align-items: stretch;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+    }
+
+footer {
+    background-color: #fff;
+    color: #333;
+    padding: 50px 0;
+    border-top: 3px solid #f1f1f1df;}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Bagian Atas Footer (Logo & Links) --- */
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Agar bisa turun ke bawah di layar kecil */
+    gap: 30px;
+}
+
+.logo-footer {
+  width: 45%;
+}
+
+/* Kolom Kiri: Logo dan Info */
+.footer-about {
+    flex: 1; /* Biarkan fleksibel */
+    min-width: 250px; /* Lebar minimum sebelum turun */
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    color: #000;
+}
+
+.logo span {
+    color: #f39c12; /* Warna oranye */
+}
+
+.footer-about p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Wadah untuk semua kolom link */
+.footer-links {
+    display: flex;
+    flex: 2; /* Beri ruang lebih besar */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+    list-style: none;
+}
+
+.footer-column a {
+    color: #000;
+}
+
+/* --- Garis Pemisah --- */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 40px 0;
+}
+
+/* --- Bagian Bawah Footer (Copyright & Social) --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.footer-socials a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-left: 10px;
+    color: #555;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.footer-socials a:hover {
+    background-color: #f0f0f0;
+    border-color: #888;
+}
+
+/* --- Desain Responsif untuk Layar Kecil --- */
+@media (max-width: 768px) {
+    .footer-main, .footer-bottom {
+        flex-direction: column; /* Susun ke bawah */
+        align-items: flex-start; /* Rata kiri */
+    }
+
+    .footer-bottom {
+        align-items: center; /* Pusatkan item di bawah */
+        text-align: center;
+    }
+    
+    .footer-socials {
+        margin-top: 15px;
+    }
+
+    .footer-links {
+      display: block;
+    }
+    .footer-column a {
+      text-decoration: none;
+    }
+}
