@@ -1,11 +1,53 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import logo from "../assets/logo.png";
 import lihatPassword from "../assets/lihat-password.png";
 import googleIcon from "../assets/google-icon.png";
 import "../styles/main.css";
 import "../styles/login.css";
-import { Link } from "react-router-dom";
 
 export default function Register() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("+62");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    // validasi password
+    if (password !== confirmPassword) {
+      alert("Password dan konfirmasi password tidak sama!");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // cek email sudah ada
+    if (users.find((u) => u.email === email)) {
+      alert("Email sudah terdaftar!");
+      return;
+    }
+
+    // simpan user
+    users.push({ 
+      name, 
+      email, 
+      phone: `${countryCode}${phone}`, 
+      password 
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registrasi berhasil! Silakan login.");
+    navigate("/login");
+  };
+
   return (
     <div className="login-page">
       <header>
@@ -21,19 +63,31 @@ export default function Register() {
             <p>Yuk, daftarkan akunmu sekarang juga!</p>
           </section>
 
-          <form>
+          <form onSubmit={handleRegister}>
             <div className="form-group">
               <label htmlFor="name">
                 Nama Lengkap <span id="required-mark">*</span>
               </label>
-              <input type="text" id="name" name="name" required />
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
 
             <div className="form-group">
               <label htmlFor="email">
                 E-Mail <span id="required-mark">*</span>
               </label>
-              <input type="email" id="email" name="email" required />
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
 
             <div className="form-group">
@@ -47,13 +101,22 @@ export default function Register() {
                     alt="ID Flag"
                     className="flag"
                   />
-                  <select defaultValue="+62">
+                  <select 
+                    value={countryCode} 
+                    onChange={(e) => setCountryCode(e.target.value)}
+                  >
                     <option value="+62">+62</option>
                     <option value="+1">+1</option>
                     <option value="+91">+91</option>
                   </select>
                 </div>
-                <input type="tel" id="phone" name="phone" required />
+                <input
+                  type="tel"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
               </div>
             </div>
 
@@ -62,12 +125,14 @@ export default function Register() {
                 Kata Sandi <span id="required-mark">*</span>
               </label>
               <div className="input-wrapper">
-                <input type="password" id="password" name="password" required />
-                <img
-                  src={lihatPassword}
-                  alt="Lihat Password"
-                  id="togglePassword"
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
+                <img src={lihatPassword} alt="Lihat Password" id="togglePassword" />
               </div>
             </div>
 
@@ -79,24 +144,25 @@ export default function Register() {
                 <input
                   type="password"
                   id="confirmPassword"
-                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
-                <img
-                  src={lihatPassword}
-                  alt="Lihat Password"
-                  id="togglePassword"
-                />
+                <img src={lihatPassword} alt="Lihat Password" id="togglePassword" />
               </div>
             </div>
 
-            <button className="btn login-btn">
-            <Link to="/" id="text-cta-login">Masuk</Link>
+            <button type="submit" className="btn login-btn">
+              Daftar
             </button>
           </form>
 
-          <button type="button" className="btn daftar-btn">
-            <Link to="/register" id="text-cta-register">Daftar</Link>
+          <button
+            type="button"
+            className="btn daftar-btn"
+            onClick={() => navigate("/login")}
+          >
+            Masuk
           </button>
 
           <div className="divider">

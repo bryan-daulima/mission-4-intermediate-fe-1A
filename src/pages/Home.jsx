@@ -1,4 +1,5 @@
 // src/App.jsx
+import { useState } from "react";
 import "../styles/main.css";
 import "../styles/home.css";
 import logo from "../assets/logo.png";
@@ -8,6 +9,26 @@ import Card from "../components/Card";
 import courses from "../data/Courses";
 
 export default function App() {
+  const [selectedCategory, setSelectedCategory] = useState("Semua Kelas");
+  const [email, setEmail] = useState("");
+
+  // Filter course berdasarkan kategori
+  const filteredCourses =
+    selectedCategory === "Semua Kelas"
+      ? courses
+      : courses.filter((course) => course.category === selectedCategory);
+
+  // Handle submit newsletter
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) {
+      alert("Email tidak boleh kosong!");
+      return;
+    }
+    alert(`Terima kasih sudah subscribe dengan email: ${email}`);
+    setEmail(""); // reset input
+  };
+
   return (
     <>
       <header>
